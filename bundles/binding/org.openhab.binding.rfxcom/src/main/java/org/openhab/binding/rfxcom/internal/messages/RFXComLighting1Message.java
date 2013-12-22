@@ -67,6 +67,7 @@ public class RFXComLighting1Message extends RFXComBaseMessage {
 		ON(1),
 		DIM(2),
 		BRIGHT(3),
+		NOT_USED0(4),
 		GROUP_OFF(5),
 		GROUP_ON(6),
 		CHIME(7),
@@ -204,6 +205,9 @@ public class RFXComLighting1Message extends RFXComBaseMessage {
 					break;
 
 				case CHIME:
+					state = OnOffType.ON;
+					break;
+
 				default:
 					throw new RFXComException("Can't convert "
 							+ command + " to SwitchItem");
@@ -232,6 +236,9 @@ public class RFXComLighting1Message extends RFXComBaseMessage {
 					break;
 
 				case CHIME:
+					state = OpenClosedType.CLOSED;
+					break;
+
 				default:
 					throw new RFXComException("Can't convert "
 							+ command + " to ContactItem");
