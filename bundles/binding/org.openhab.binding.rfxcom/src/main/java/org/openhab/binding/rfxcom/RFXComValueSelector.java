@@ -22,7 +22,7 @@ import org.openhab.core.library.items.RollershutterItem;
  * Represents all valid value selectors which could be processed by this
  * binding.
  * 
- * @author Pauli Anttila, Evert van Es
+ * @author Pauli Anttila, Evert van Es, Paul Hampson (cyclingengineer)
  * @since 1.2.0
  */
 public enum RFXComValueSelector {
@@ -52,7 +52,8 @@ public enum RFXComValueSelector {
 	MOTION("Motion", SwitchItem.class),
 	CONTACT("Contact", ContactItem.class),
 	VOLTAGE("Voltage", NumberItem.class),
-	SET_POINT("SetPoint", NumberItem.class)
+	SET_POINT("SetPoint", NumberItem.class),
+	CHIME("Chime", SwitchItem.class),
 	;
 
 	private final String text;

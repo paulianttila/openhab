@@ -30,7 +30,7 @@ import org.openhab.core.types.UnDefType;
 /**
  * RFXCOM data class for lighting1 message. See X10, ARC, etc..
  * 
- * @author Evert van Es, Cycling Engineer
+ * @author Evert van Es, Paul Hampson
  * @since 1.2.0
  */
 public class RFXComLighting1Message extends RFXComBaseMessage {
@@ -289,7 +289,13 @@ public class RFXComLighting1Message extends RFXComBaseMessage {
 				throw new RFXComException("Can't convert " + type + " to Command");
 			}
 			break;
-
+		case CHIME:
+			if (type instanceof OnOffType) {
+				command = (type == OnOffType.ON ? Commands.CHIME : Commands.OFF);
+			} else {
+				throw new RFXComException("Can't convert " + type + " to Chime");
+			}
+			break;
 		default:
 			throw new RFXComException("Can't convert " + type + " to " + valueSelector);
 		}
